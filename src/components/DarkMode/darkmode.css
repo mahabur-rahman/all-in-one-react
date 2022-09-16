@@ -43,14 +43,13 @@ body .main {
     font-size: 23px;
 }
 
-
-/* #light .sign {
+#light .sign {
     color: #8c55aa;
 }
 
 #dark .sign {
     color: #ffffff;
-} */
+}
 
 .username {
     width: 76%;
