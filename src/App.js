@@ -11,11 +11,15 @@ import SignUp from "./components/CustomNavbarWithSidebar/SignUp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/CustomNavbarWithSidebar/Navbar";
 import SimpleSearch from "./components/ReactSimpleSearch/SimpleSearch";
+import AdvanceSearch from "./components/AdvanceSearchInput/AdvanceSearch";
+import JsonData from "./components/AdvanceSearchInput/Data.json";
 
 const App = () => {
   return (
     <>
-      <SimpleSearch />
+      <div className="App">
+        <AdvanceSearch placeholder="Write something.." data={JsonData} />
+      </div>
     </>
   );
 };
