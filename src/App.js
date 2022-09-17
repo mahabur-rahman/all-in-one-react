@@ -10,21 +10,12 @@ import SignUp from "./components/CustomNavbarWithSidebar/SignUp";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/CustomNavbarWithSidebar/Navbar";
+import SimpleSearch from "./components/ReactSimpleSearch/SimpleSearch";
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      </BrowserRouter>
+      <SimpleSearch />
     </>
   );
 };
