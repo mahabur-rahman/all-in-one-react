@@ -13,13 +13,12 @@ import Navbar from "./components/CustomNavbarWithSidebar/Navbar";
 import SimpleSearch from "./components/ReactSimpleSearch/SimpleSearch";
 import AdvanceSearch from "./components/AdvanceSearchInput/AdvanceSearch";
 import JsonData from "./components/AdvanceSearchInput/Data.json";
+import GoogleMapFirst from "./components/GoogleMapFirst/GoogleMapFirst";
 
 const App = () => {
   return (
     <>
-      <div className="App">
-        <AdvanceSearch placeholder="Write something.." data={JsonData} />
-      </div>
+      <GoogleMapFirst />
     </>
   );
 };
