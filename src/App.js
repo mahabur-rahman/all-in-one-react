@@ -14,11 +14,12 @@ import SimpleSearch from "./components/ReactSimpleSearch/SimpleSearch";
 import AdvanceSearch from "./components/AdvanceSearchInput/AdvanceSearch";
 import JsonData from "./components/AdvanceSearchInput/Data.json";
 import GoogleMapFirst from "./components/GoogleMapFirst/GoogleMapFirst";
+import Notification from "./components/Notification/Notification";
 
 const App = () => {
   return (
     <>
-      <GoogleMapFirst />
+      <Notification />
     </>
   );
 };
