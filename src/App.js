@@ -17,11 +17,12 @@ import GoogleMapFirst from "./components/GoogleMapFirst/GoogleMapFirst";
 import Notification from "./components/Notification/Notification";
 import Modal from "./components/Modal/Modal";
 import AutomaticPopup from "./components/Modal/AutomaticPopup";
+import FormOne from "./components/FormValidaton/FormOne";
 
 const App = () => {
   return (
     <>
-      <AutomaticPopup />
+      <FormOne />
     </>
   );
 };
