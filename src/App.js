@@ -15,11 +15,12 @@ import AdvanceSearch from "./components/AdvanceSearchInput/AdvanceSearch";
 import JsonData from "./components/AdvanceSearchInput/Data.json";
 import GoogleMapFirst from "./components/GoogleMapFirst/GoogleMapFirst";
 import Notification from "./components/Notification/Notification";
+import Modal from "./components/Modal/Modal";
 
 const App = () => {
   return (
     <>
-      <Notification />
+      <Modal />
     </>
   );
 };
