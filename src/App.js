@@ -16,11 +16,12 @@ import JsonData from "./components/AdvanceSearchInput/Data.json";
 import GoogleMapFirst from "./components/GoogleMapFirst/GoogleMapFirst";
 import Notification from "./components/Notification/Notification";
 import Modal from "./components/Modal/Modal";
+import AutomaticPopup from "./components/Modal/AutomaticPopup";
 
 const App = () => {
   return (
     <>
-      <Modal />
+      <AutomaticPopup />
     </>
   );
 };
