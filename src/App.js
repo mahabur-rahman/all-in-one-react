@@ -20,19 +20,67 @@ import AutomaticPopup from "./components/Modal/AutomaticPopup";
 import FormOne from "./components/FormValidaton/FormOne";
 import FormTwo from "./components/FormValidaton/FormTwo";
 import { useState } from "react";
+import { useRef } from "react";
 
 const App = () => {
-  const [username, setUsername] = useState("");
+  const [info, setInfo] = useState({
+    username: "",
+    email: "",
+    birthday: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  console.log(username);
+  const inputs = [
+    {
+      id: 1,
+      name: "username",
+      type: "text",
+      placeholder: "username",
+      label: "Username",
+    },
+    {
+      id: 2,
+      name: "email",
+      type: "text",
+      placeholder: "email",
+      label: "Email",
+    },
+    {
+      id: 3,
+      name: "birthday",
+      type: "text",
+      placeholder: "birthday",
+      label: "Birthday",
+    },
+    {
+      id: 4,
+      name: "password",
+      type: "password",
+      placeholder: "password",
+      label: "Password",
+    },
+    {
+      id: 5,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "confirmPassword",
+      label: "confirm Password",
+    },
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <div className="app">
-        <form>
-          <FormTwo placeholder="username" setUsername={setUsername} />
-          <FormTwo placeholder="email" />
-          <FormTwo placeholder="full name" />
-          <FormTwo placeholder="something else" />
+        <form onSubmit={handleSubmit}>
+          {inputs.map((input) => (
+            <FormTwo key={input.id} {...input} value={info[input.name]} />
+          ))}
+          <button>submit</button>
         </form>
       </div>
     </>

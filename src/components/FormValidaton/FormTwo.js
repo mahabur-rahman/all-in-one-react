@@ -2,13 +2,11 @@ import React from "react";
 import "./form.css";
 
 const FormTwo = (props) => {
+  console.log("form two : ", props.value);
   return (
     <div className="formInput">
       {/* <label>username</label> */}
-      <input
-        placeholder={props.placeholder}
-        onChange={(e) => props.setUsername(e.target.value)}
-      />
+      <input placeholder={props.placeholder} name={props.name} />
     </div>
   );
 };
