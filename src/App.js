@@ -18,11 +18,23 @@ import Notification from "./components/Notification/Notification";
 import Modal from "./components/Modal/Modal";
 import AutomaticPopup from "./components/Modal/AutomaticPopup";
 import FormOne from "./components/FormValidaton/FormOne";
+import FormTwo from "./components/FormValidaton/FormTwo";
+import { useState } from "react";
 
 const App = () => {
+  const [username, setUsername] = useState("");
+
+  console.log(username);
   return (
     <>
-      <FormOne />
+      <div className="app">
+        <form>
+          <FormTwo placeholder="username" setUsername={setUsername} />
+          <FormTwo placeholder="email" />
+          <FormTwo placeholder="full name" />
+          <FormTwo placeholder="something else" />
+        </form>
+      </div>
     </>
   );
 };

@@ -2,25 +2,9 @@
     margin: 0;
 }
 
-
-/* h1 {
+.app {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
-} */
-
-.App {
-    width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: "Nunito", sans-serif;
-    background-image: linear-gradient(90deg, #101010, #9dded2);
-}
-
-body {
-    padding: 0;
-    margin: 0;
 }
