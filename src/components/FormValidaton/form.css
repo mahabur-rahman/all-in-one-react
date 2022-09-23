@@ -12,17 +12,21 @@ input {
 }
 
 label {
-    font-size: 12px;
+    font-size: 18px;
     color: gray;
 }
 
 span {
-    font-size: 12px;
+    font-size: 14px;
     padding: 3px;
     color: red;
     display: none;
 }
 
-input:invalid~span {
+input:invalid[focused="true"] {
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"]~span {
     display: block;
 }
