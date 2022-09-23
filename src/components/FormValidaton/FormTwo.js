@@ -1,14 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import "./form.css";
 
-const FormTwo = (props) => {
-  console.log("form two : ", props.value);
+const FormInput = (props) => {
+  const { label, errorMessage, onChange, id, ...inputProps } = props;
+
   return (
     <div className="formInput">
-      {/* <label>username</label> */}
-      <input placeholder={props.placeholder} name={props.name} />
+      <label>{label}</label>
+      <input {...inputProps} onChange={onChange} />
+      <span>{errorMessage}</span>
     </div>
   );
 };
 
-export default FormTwo;
+export default FormInput;
