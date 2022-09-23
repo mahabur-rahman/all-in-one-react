@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const initialValues = { username: "", email: "", password: "" };
+
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -50,13 +51,13 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="form">
       {Object.keys(formErrors).length === 0 && isSubmit ? (
         <div className="ui message success" style={{ color: "green" }}>
           Signed in successfully
         </div>
       ) : (
-        <p>{JSON.stringify(formValues, undefined, 2)}</p>
+        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
       )}
 
       <form onSubmit={handleSubmit}>
