@@ -12,7 +12,8 @@ const GeneratePass = () => {
     symbol: false,
   });
 
-  console.log(genPassword);
+  //   console.log(genPassword);
+
   const [handleText, setHandleText] = useState("");
   const [copyText, setCopyText] = useState(false);
 
@@ -57,6 +58,43 @@ const GeneratePass = () => {
     });
   };
 
+  //   generate password after btn click
+  function handleClick() {
+    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    const symbolsArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+
+    const characterCodes = Array.from(Array(26)).map((_e, i) => i + 97);
+    const lowerCaseLetters = characterCodes.map((code) =>
+      String.fromCharCode(code)
+    );
+    const upperCaseLetters = lowerCaseLetters.map((letter) =>
+      letter.toUpperCase()
+    );
+
+    const { length, uppercase, lowercase, numbers, symbols } = genPassword;
+
+    const generateTheWord = (
+      length,
+      uppercase,
+      lowercase,
+      numbers,
+      symbols
+    ) => {
+      const availableCharacters = [
+        ...(lowercase ? lowerCaseLetters : []),
+        ...(uppercase ? upperCaseLetters : []),
+        ...(numbers ? numbersArray : []),
+        ...(symbols ? symbolsArray : []),
+      ];
+      const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+      const characters = shuffleArray(availableCharacters).slice(0, length);
+      setHandleText(characters.join(""));
+      return characters;
+    };
+
+    generateTheWord(length, uppercase, lowercase, numbers, symbols);
+  }
+
   return (
     <>
       <div className="wrapper">
@@ -71,7 +109,20 @@ const GeneratePass = () => {
               value={handleText}
               onChange={(e) => setHandleText(e.target.value)}
             />
-            <button className="copy-button">Copy text</button>
+            <button
+              className="copy-button"
+              onClick={() => {
+                if (handleText.length > 0) {
+                  navigator.clipboard.writeText(handleText);
+                  setCopyText(true);
+                  setInterval(() => {
+                    setCopyText(false);
+                  }, 2000);
+                }
+              }}
+            >
+              {copyText ? "Copied!" : "Copy text"}
+            </button>
           </div>
 
           <br />
@@ -140,7 +191,9 @@ const GeneratePass = () => {
             </div>
           </div>
           <div>
-            <button className="generate-button">Generate password</button>
+            <button className="generate-button" onClick={handleClick}>
+              Generate password
+            </button>
           </div>
         </div>
       </div>
