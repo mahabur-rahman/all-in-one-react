@@ -16,3 +16,12 @@
     padding: 10px 20px;
     margin: auto;
 } */
+
+.active {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.inActive {
+    color: blue;
+}
