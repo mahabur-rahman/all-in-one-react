@@ -23,11 +23,12 @@ import { useState } from "react";
 import { useRef } from "react";
 import FormInput from "./components/FormValidaton/FormTwo";
 import FormThree from "./components/FormValidaton/FormThree";
+import GeneratePassword from "./components/PasswordGenerator/GeneratePass";
 
 const App = () => {
   return (
     <>
-      <FormThree />
+      <GeneratePassword />
     </>
   );
 };
