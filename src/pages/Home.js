@@ -1,11 +1,15 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <h1>Home page</h1>
+      <button onClick={() => navigate("/order-summary", { replace: true })}>
+        Place order
+      </button>
     </>
   );
 };

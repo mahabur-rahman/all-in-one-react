@@ -30,11 +30,13 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Error from "./pages/Error";
 import Header from "./pages/Header";
+import Toolbar from "./components/Toolbar/Toolbar";
+import OrderSummary from "./pages/OrderSummary";
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Header />}>
             <Route index element={<Home />} />
@@ -43,6 +45,16 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/*" element={<Error />} />
           </Route>
+        </Routes>
+      </BrowserRouter> */}
+
+      <BrowserRouter>
+        <Toolbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </>
