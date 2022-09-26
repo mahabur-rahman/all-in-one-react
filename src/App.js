@@ -25,7 +25,7 @@ import "./global.css";
 // react router dom
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Error from "./pages/Error";
@@ -38,6 +38,7 @@ import NewProducts from "./components/NewProducts";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 import Admin from "./components/Admin";
+const LazyAbout = React.lazy(() => import("./pages/About"));
 
 const App = () => {
   return (
@@ -58,7 +59,14 @@ const App = () => {
         <Toolbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route
+            path="about"
+            element={
+              <React.Suspense fallback="loading..">
+                <LazyAbout />
+              </React.Suspense>
+            }
+          />
           <Route path="/order-summary" element={<OrderSummary />} />
           <Route path="products" element={<Product />}>
             <Route index element={<FeaturedProduct />} />
