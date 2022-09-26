@@ -32,6 +32,9 @@ import Error from "./pages/Error";
 import Header from "./pages/Header";
 import Toolbar from "./components/Toolbar/Toolbar";
 import OrderSummary from "./pages/OrderSummary";
+import Product from "./components/Product";
+import FeaturedProduct from "./components/FeaturedProduct";
+import NewProducts from "./components/NewProducts";
 
 const App = () => {
   return (
@@ -54,6 +57,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="products" element={<Product />}>
+            <Route path="featured" element={<FeaturedProduct />} />
+            <Route path="new" element={<NewProducts />} />
+          </Route>
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

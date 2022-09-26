@@ -13,6 +13,9 @@ const Toolbar = () => {
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
+          <li>
+            <NavLink to="/products">Products</NavLink>
+          </li>
         </ul>
       </nav>
     </div>
