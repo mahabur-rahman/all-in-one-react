@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, userParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const UserDetails = () => {
   const { userId } = useParams();
