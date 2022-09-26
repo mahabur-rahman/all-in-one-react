@@ -35,6 +35,9 @@ import OrderSummary from "./pages/OrderSummary";
 import Product from "./components/Product";
 import FeaturedProduct from "./components/FeaturedProduct";
 import NewProducts from "./components/NewProducts";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
+import Admin from "./components/Admin";
 
 const App = () => {
   return (
@@ -62,6 +65,12 @@ const App = () => {
             <Route path="featured" element={<FeaturedProduct />} />
             <Route path="new" element={<NewProducts />} />
           </Route>
+
+          <Route path="users" element={<Users />}>
+            <Route path=":userId" element={<UserDetails />} />
+            <Route path="admin" element={<Admin />} />
+          </Route>
+
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
