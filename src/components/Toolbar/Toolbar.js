@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../auth";
 import "./toolbar.css";
 
 const Toolbar = () => {
+  const auth = useAuth();
+
   return (
     <div>
       <nav>
@@ -16,6 +19,15 @@ const Toolbar = () => {
           <li>
             <NavLink to="/products">Products</NavLink>
           </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+
+          {!auth.user && (
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

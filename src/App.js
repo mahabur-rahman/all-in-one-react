@@ -38,6 +38,10 @@ import NewProducts from "./components/NewProducts";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 import Admin from "./components/Admin";
+import Profile from "./components/Profile";
+import { AuthProvider } from "./components/auth";
+import Login from "./components/Login";
+import { RequireAuth } from "./components/RequireAuth";
 const LazyAbout = React.lazy(() => import("./pages/About"));
 
 const App = () => {
@@ -54,34 +58,45 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter> */}
+      <AuthProvider>
+        <BrowserRouter>
+          <Toolbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="about"
+              element={
+                <React.Suspense fallback="loading..">
+                  <LazyAbout />
+                </React.Suspense>
+              }
+            />
+            <Route path="/order-summary" element={<OrderSummary />} />
+            <Route path="products" element={<Product />}>
+              <Route index element={<FeaturedProduct />} />
+              <Route path="featured" element={<FeaturedProduct />} />
+              <Route path="new" element={<NewProducts />} />
+            </Route>
 
-      <BrowserRouter>
-        <Toolbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="about"
-            element={
-              <React.Suspense fallback="loading..">
-                <LazyAbout />
-              </React.Suspense>
-            }
-          />
-          <Route path="/order-summary" element={<OrderSummary />} />
-          <Route path="products" element={<Product />}>
-            <Route index element={<FeaturedProduct />} />
-            <Route path="featured" element={<FeaturedProduct />} />
-            <Route path="new" element={<NewProducts />} />
-          </Route>
+            <Route path="users" element={<Users />}>
+              <Route path=":userId" element={<UserDetails />} />
+              <Route path="admin" element={<Admin />} />
+            </Route>
 
-          <Route path="users" element={<Users />}>
-            <Route path=":userId" element={<UserDetails />} />
-            <Route path="admin" element={<Admin />} />
-          </Route>
+            <Route
+              path="profile"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route path="login" element={<Login />} />
 
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   );
 };
