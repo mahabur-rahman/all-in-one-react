@@ -42,11 +42,13 @@ import Profile from "./components/Profile";
 import { AuthProvider } from "./components/auth";
 import Login from "./components/Login";
 import { RequireAuth } from "./components/RequireAuth";
+import FormOne from "./components/FormikValidation/FormOne";
 const LazyAbout = React.lazy(() => import("./pages/About"));
 
 const App = () => {
   return (
     <>
+      <FormOne />
       {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Header />}>
@@ -58,7 +60,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter> */}
-      <AuthProvider>
+      {/* <AuthProvider>
         <BrowserRouter>
           <Toolbar />
           <Routes>
@@ -96,7 +98,7 @@ const App = () => {
             <Route path="*" element={<Error />} />
           </Routes>
         </BrowserRouter>
-      </AuthProvider>
+      </AuthProvider> */}
     </>
   );
 };
