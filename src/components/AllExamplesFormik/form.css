@@ -20,10 +20,8 @@ form label {
 }
 
 input {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     padding: 10px 20px;
+    display: block;
 }
 
 .input-block {
@@ -40,6 +38,7 @@ button {
     width: 100%;
 }
 
-.form-error {
+.form-error,
+.error {
     color: rgb(243, 128, 128);
 }
